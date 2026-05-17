@@ -5028,39 +5028,133 @@ thumbClearBtn?.addEventListener("click", () => {
 
         const fusionRecipes = new Map([
           [keyFor("Assault Rifle", "Freeze Ray"), { result: "Permafrost", reason: "automatic rifle pressure frozen into Permafrost tech" }],
+          [keyFor("Assault Rifle", "Minigun"), { result: "Burst Rifle", reason: "automatic fire stabilized into burst control" }],
+          [keyFor("Assault Rifle", "Shotgun"), { result: "Gunblade", reason: "rifle pressure mixed with close-range burst creates a hybrid weapon" }],
+          [keyFor("Assault Rifle", "Sniper"), { result: "Energy Rifle", reason: "rifle consistency fused with precision damage" }],
+          [keyFor("Assault Rifle", "RPG"), { result: "Grenade Launcher", reason: "rifle pressure upgraded into explosive repeat fire" }],
+          [keyFor("Assault Rifle", "Flamethrower"), { result: "Minigun", reason: "constant fire pressure becomes heavy sustained damage" }],
+          [keyFor("Assault Rifle", "Crossbow"), { result: "Gunblade", reason: "ranged accuracy and weapon tech form a hybrid blade-gun" }],
+          [keyFor("Assault Rifle", "Energy Pistols"), { result: "Energy Rifle", reason: "energy sidearms upgrade the rifle platform" }],
+          [keyFor("Assault Rifle", "Warpstone"), { result: "Warper", reason: "rifle pressure fused with teleport utility" }],
+          [keyFor("Assault Rifle", "Grenade"), { result: "Grenade Launcher", reason: "basic explosives built into rifle-style launching" }],
+
           [keyFor("Handgun", "Spray"), { result: "Uzi", reason: "a compact pistol upgraded into rapid-fire spray control" }],
           [keyFor("Pistol", "Spray"), { result: "Uzi", reason: "a pistol-style sidearm fused with spray fire rate" }],
           [keyFor("Revolver", "Spray"), { result: "Uzi", reason: "sidearm precision mixed with spray fire rate" }],
+          [keyFor("Handgun", "Revolver"), { result: "Exogun", reason: "classic sidearms refined into a futuristic pistol" }],
+          [keyFor("Handgun", "Shorty"), { result: "Revolver", reason: "quick sidearm pressure becomes stronger single-shot damage" }],
+          [keyFor("Handgun", "Energy Pistols"), { result: "Exogun", reason: "a simple handgun upgraded with energy tech" }],
+          [keyFor("Revolver", "Energy Pistols"), { result: "Exogun", reason: "precision sidearm damage becomes high-tech burst" }],
+          [keyFor("Revolver", "Sniper"), { result: "Exogun", reason: "precision damage compressed into a futuristic sidearm" }],
+          [keyFor("Uzi", "Spray"), { result: "Minigun", reason: "rapid fire stacked into heavier sustained fire" }],
+          [keyFor("Uzi", "Minigun"), { result: "Spray", reason: "heavy fire condensed back into mobile spray pressure" }],
+          [keyFor("Shorty", "Shotgun"), { result: "Flamethrower", reason: "close-range burst becomes constant area pressure" }],
+          [keyFor("Shorty", "Flare Gun"), { result: "Flamethrower", reason: "close-range damage mixed with fire utility" }],
+          [keyFor("Flare Gun", "Molotov"), { result: "Flamethrower", reason: "fire tools combined into direct flame damage" }],
+          [keyFor("Flare Gun", "RPG"), { result: "Grenade Launcher", reason: "flare projectile tech becomes heavier explosives" }],
+
           [keyFor("Bow", "Crossbow"), { result: "RPG", reason: "projectile weapons fused into a heavier launcher" }],
-          [keyFor("Grenade", "RPG"), { result: "Grenade Launcher", reason: "explosive power reshaped for repeat launches" }],
-          [keyFor("Energy Rifle", "Freeze Ray"), { result: "Permafrost", reason: "energy tech chilled into a freezing rifle variant" }],
-          [keyFor("Energy Rifle", "Energy Pistols"), { result: "Exogun", reason: "energy weapons compressed into a high-tech exo weapon" }],
-          [keyFor("Sniper", "Revolver"), { result: "Exogun", reason: "precision damage fused into a futuristic sidearm" }],
-          [keyFor("Shotgun", "Shorty"), { result: "Flamethrower", reason: "close-range burst power becomes area pressure" }],
-          [keyFor("Katana", "Scythe"), { result: "Battle Axe", reason: "two blades merged into a heavier melee weapon" }],
-          [keyFor("Knife", "Daggers"), { result: "Katana", reason: "small blades forged into one stronger blade" }],
-          [keyFor("Fists", "Riot Shield"), { result: "Spear", reason: "brawler defense converted into reach and control" }],
-          [keyFor("Grappler", "Warpstone"), { result: "Warper", reason: "movement utility turned into full teleport pressure" }],
-          [keyFor("Subspace Tripmine", "Grenade"), { result: "Satchel", reason: "trap explosives fused into controlled detonation" }],
-          [keyFor("Molotov", "Grenade"), { result: "Flamethrower", reason: "fire explosives refined into constant flame output" }],
-          [keyFor("Jump Pad", "Grappler"), { result: "Warpstone", reason: "mobility tools converted into instant repositioning" }],
+          [keyFor("Bow", "Slingshot"), { result: "Crossbow", reason: "arc projectiles gain stronger mechanical launch power" }],
           [keyFor("Paintball Gun", "Slingshot"), { result: "Bow", reason: "arc projectiles fused into a stronger ranged weapon" }],
-          [keyFor("Minigun", "Assault Rifle"), { result: "Burst Rifle", reason: "automatic fire stabilized into burst control" }],
-          [keyFor("Scepter", "War Horn"), { result: "Warper", reason: "support magic and sound pressure create battlefield control" }],
+          [keyFor("Paintball Gun", "Bow"), { result: "Crossbow", reason: "paintball pressure and bow arcs become mechanical precision" }],
+          [keyFor("Paintball Gun", "Spray"), { result: "Flamethrower", reason: "stream pressure turns into continuous area damage" }],
+          [keyFor("Crossbow", "Sniper"), { result: "Energy Rifle", reason: "precision projectiles become energized ranged damage" }],
+          [keyFor("Crossbow", "Daggers"), { result: "Gunblade", reason: "projectile mechanics fused with close-range blades" }],
+          [keyFor("Sniper", "Freeze Ray"), { result: "Permafrost", reason: "long-range precision becomes freezing control" }],
+          [keyFor("Sniper", "Energy Rifle"), { result: "Distortion", reason: "precision energy becomes unstable distortion damage" }],
+          [keyFor("Energy Rifle", "Freeze Ray"), { result: "Permafrost", reason: "energy tech chilled into a freezing rifle variant" }],
+          [keyFor("Energy Rifle", "Energy Pistols"), { result: "Exogun", reason: "energy weapons compressed into a high-tech sidearm" }],
+          [keyFor("Energy Rifle", "Warpstone"), { result: "Distortion", reason: "energy and teleport tech destabilize into distortion" }],
+          [keyFor("Energy Rifle", "Subspace Tripmine"), { result: "Distortion", reason: "subspace energy corrupts the rifle into distortion tech" }],
+          [keyFor("Energy Rifle", "Scepter"), { result: "Permafrost", reason: "magic energy stabilizes into elemental rifle control" }],
+
+          [keyFor("Grenade", "RPG"), { result: "Grenade Launcher", reason: "explosive power reshaped for repeat launches" }],
+          [keyFor("Grenade", "Molotov"), { result: "Flamethrower", reason: "fire explosives refined into constant flame output" }],
+          [keyFor("Grenade", "Satchel"), { result: "Subspace Tripmine", reason: "detonation tools become a stronger trap" }],
+          [keyFor("Grenade", "Subspace Tripmine"), { result: "Satchel", reason: "trap explosives fused into controlled detonation" }],
+          [keyFor("Grenade Launcher", "RPG"), { result: "Flamethrower", reason: "heavy explosives become overwhelming area pressure" }],
+          [keyFor("Grenade Launcher", "Minigun"), { result: "RPG", reason: "spam fire condenses into one heavier explosive shot" }],
+          [keyFor("Grenade Launcher", "Molotov"), { result: "Flamethrower", reason: "explosive splash mixed with fire" }],
+          [keyFor("RPG", "Minigun"), { result: "Grenade Launcher", reason: "heavy firepower converted into explosive spam" }],
+          [keyFor("RPG", "Satchel"), { result: "Subspace Tripmine", reason: "big explosions become trap-based control" }],
+          [keyFor("Subspace Tripmine", "Warpstone"), { result: "Distortion", reason: "subspace traps and teleport tech become unstable" }],
+
+          [keyFor("Knife", "Daggers"), { result: "Katana", reason: "small blades forged into one stronger blade" }],
+          [keyFor("Knife", "Katana"), { result: "Daggers", reason: "single blade speed splits into fast dual pressure" }],
+          [keyFor("Knife", "Scythe"), { result: "Spear", reason: "blade range stretches into piercing control" }],
+          [keyFor("Knife", "Fists"), { result: "Daggers", reason: "raw close combat becomes fast blade pressure" }],
+          [keyFor("Daggers", "Katana"), { result: "Scythe", reason: "fast blades fuse into sweeping melee reach" }],
+          [keyFor("Daggers", "Scythe"), { result: "Battle Axe", reason: "multiple blades become heavier melee power" }],
+          [keyFor("Katana", "Scythe"), { result: "Battle Axe", reason: "two blades merged into a heavier melee weapon" }],
+          [keyFor("Katana", "Battle Axe"), { result: "Scythe", reason: "heavy blade power becomes wide sweeping reach" }],
+          [keyFor("Scythe", "Battle Axe"), { result: "Maul", reason: "heavy melee weapons become crushing power" }],
+          [keyFor("Maul", "Battle Axe"), { result: "Chainsaw", reason: "brute force turns into aggressive shredding pressure" }],
+          [keyFor("Chainsaw", "Knife"), { result: "Katana", reason: "cutting power becomes cleaner blade control" }],
+          [keyFor("Chainsaw", "Scythe"), { result: "Maul", reason: "wide melee damage becomes heavy impact" }],
+          [keyFor("Fists", "Riot Shield"), { result: "Spear", reason: "brawler defense converted into reach and control" }],
+          [keyFor("Fists", "Maul"), { result: "Battle Axe", reason: "raw strength becomes a heavier weapon" }],
+          [keyFor("Riot Shield", "Spear"), { result: "Trowel", reason: "defense and reach convert into defensive building control" }],
+          [keyFor("Riot Shield", "Trowel"), { result: "Subspace Tripmine", reason: "defensive setup becomes trap control" }],
+
+          [keyFor("Grappler", "Warpstone"), { result: "Warper", reason: "movement utility turned into full teleport pressure" }],
+          [keyFor("Jump Pad", "Grappler"), { result: "Warpstone", reason: "mobility tools converted into instant repositioning" }],
+          [keyFor("Jump Pad", "Warpstone"), { result: "Warper", reason: "vertical movement fused with teleporting" }],
+          [keyFor("Jump Pad", "Satchel"), { result: "Grappler", reason: "explosive movement becomes controlled repositioning" }],
+          [keyFor("Grappler", "Satchel"), { result: "Jump Pad", reason: "movement and blast force become launch utility" }],
+          [keyFor("Grappler", "Smoke Grenade"), { result: "Warpstone", reason: "escape utility becomes instant repositioning" }],
+          [keyFor("Smoke Grenade", "Flashbang"), { result: "Freeze Ray", reason: "utility disruption hardened into crowd control" }],
+          [keyFor("Smoke Grenade", "Warpstone"), { result: "Warper", reason: "cover and teleporting become evasive control" }],
+          [keyFor("Flashbang", "Freeze Ray"), { result: "Permafrost", reason: "stun utility freezes into stronger crowd control" }],
+          [keyFor("Freeze Ray", "Warpstone"), { result: "Warper", reason: "freezing control and teleporting create map pressure" }],
           [keyFor("Medkit", "Elixir"), { result: "Scepter", reason: "support items fused into a magical support weapon" }],
-          [keyFor("Smoke Grenade", "Flashbang"), { result: "Freeze Ray", reason: "utility disruption hardened into crowd control" }]
+          [keyFor("Medkit", "War Horn"), { result: "Scepter", reason: "healing and team pressure fuse into support magic" }],
+          [keyFor("Scepter", "War Horn"), { result: "Warper", reason: "support magic and sound pressure create battlefield control" }],
+          [keyFor("War Horn", "Flashbang"), { result: "Freeze Ray", reason: "disruption utility becomes hard crowd control" }],
+          [keyFor("Elixir", "Warpstone"), { result: "Warper", reason: "buff utility and teleport tech become advanced control" }]
         ]);
 
-        const categoryFallbacks = [
-          { test: (a,b) => a.category === "Primary" && b.category === "Primary", result: "Burst Rifle", reason: "two primaries balanced into a flexible rifle" },
-          { test: (a,b) => a.category === "Secondary" && b.category === "Secondary", result: "Uzi", reason: "two secondaries fused into fast backup pressure" },
-          { test: (a,b) => a.category === "Melee" && b.category === "Melee", result: "Battle Axe", reason: "melee power stacked into a heavier blade" },
-          { test: (a,b) => a.category === "Utility" && b.category === "Utility", result: "Warpstone", reason: "utility tools fused into stronger mobility control" },
-          { test: (a,b) => [a.category,b.category].includes("Primary") && [a.category,b.category].includes("Utility"), result: "Warper", reason: "a weapon plus utility creates map-control pressure" },
-          { test: (a,b) => [a.category,b.category].includes("Primary") && [a.category,b.category].includes("Secondary"), result: "Exogun", reason: "main weapon damage mixed with backup flexibility" },
-          { test: (a,b) => [a.category,b.category].includes("Melee") && [a.category,b.category].includes("Utility"), result: "Spear", reason: "melee range mixed with utility control" },
-          { test: (a,b) => [a.category,b.category].includes("Melee") && [a.category,b.category].includes("Secondary"), result: "Daggers", reason: "close-range pressure becomes quick melee burst" }
-        ];
+        const categoryFallbackPools = {
+          "Primary|Primary": {
+            results: ["Energy Rifle", "Gunblade", "Sniper", "Grenade Launcher", "Paintball Gun", "RPG", "Minigun", "Crossbow", "Flamethrower", "Distortion", "Permafrost"],
+            reason: "two primaries fused into a new main-weapon style"
+          },
+          "Secondary|Secondary": {
+            results: ["Uzi", "Exogun", "Energy Pistols", "Daggers", "Slingshot", "Flare Gun", "Shorty", "Revolver", "Warper"],
+            reason: "two secondaries fused into a faster backup weapon"
+          },
+          "Melee|Melee": {
+            results: ["Katana", "Scythe", "Battle Axe", "Chainsaw", "Spear", "Maul", "Trowel", "Riot Shield", "Daggers"],
+            reason: "two melee weapons fused into a different close-range style"
+          },
+          "Utility|Utility": {
+            results: ["Warpstone", "Warper", "Freeze Ray", "Satchel", "Subspace Tripmine", "Grappler", "War Horn", "Scepter", "Molotov", "Jump Pad"],
+            reason: "two utilities fused into a stronger support or control tool"
+          },
+          "Primary|Secondary": {
+            results: ["Gunblade", "Energy Rifle", "Exogun", "Burst Rifle", "Paintball Gun", "Crossbow", "Flamethrower", "Sniper", "Energy Pistols"],
+            reason: "primary damage mixed with secondary flexibility"
+          },
+          "Primary|Melee": {
+            results: ["Gunblade", "Chainsaw", "Spear", "Battle Axe", "Scythe", "Katana", "Maul", "Distortion"],
+            reason: "ranged pressure and melee aggression fused together"
+          },
+          "Primary|Utility": {
+            results: ["Warper", "Permafrost", "Distortion", "Freeze Ray", "Grenade Launcher", "Flamethrower", "Warpstone", "RPG", "Scepter"],
+            reason: "weapon damage fused with utility control"
+          },
+          "Secondary|Melee": {
+            results: ["Daggers", "Katana", "Gunblade", "Spear", "Chainsaw", "Battle Axe", "Shorty", "Uzi"],
+            reason: "backup pressure mixed with close-range aggression"
+          },
+          "Secondary|Utility": {
+            results: ["Warper", "Energy Pistols", "Freeze Ray", "Flare Gun", "Satchel", "Slingshot", "Warpstone", "Exogun", "Smoke Grenade"],
+            reason: "sidearm pressure fused with tactical utility"
+          },
+          "Melee|Utility": {
+            results: ["Spear", "Trowel", "Scythe", "Chainsaw", "Warpstone", "Subspace Tripmine", "Riot Shield", "Warper", "Battle Axe"],
+            reason: "melee control fused with utility movement or setup"
+          }
+        };
 
         const setFusionImage = (img, weapon) => {
           if (!img || !weapon) return;
@@ -5092,14 +5186,35 @@ thumbClearBtn?.addEventListener("click", () => {
         const pickFusionResult = () => {
           const [a, b] = fusionSelections;
           if (!a || !b) return null;
+
           const direct = fusionRecipes.get(keyFor(a.name, b.name));
           if (direct && getWeapon(direct.result)) return direct;
-          const fallback = categoryFallbacks.find(rule => rule.test(a, b));
-          if (fallback && getWeapon(fallback.result)) return fallback;
-          const pool = allWeapons.filter(w => w.name !== a.name && w.name !== b.name);
-          const seed = (a.name + b.name).split("").reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
-          const result = pool[seed % pool.length] || allWeapons[0];
-          return { result: result.name, reason: "Rivals RNG stabilized the fusion into a new weapon" };
+
+          const categoryKey = [a.category, b.category].sort().join("|");
+          const poolData = categoryFallbackPools[categoryKey];
+
+          const seedText = `${a.name}|${b.name}|${a.category}|${b.category}`;
+          const seed = seedText.split("").reduce((sum, ch, index) => sum + ch.charCodeAt(0) * (index + 7), 0);
+
+          if (poolData) {
+            const validResults = poolData.results.filter(name => getWeapon(name) && name !== a.name && name !== b.name);
+            if (validResults.length) {
+              const result = validResults[seed % validResults.length];
+              return { result, reason: poolData.reason };
+            }
+          }
+
+          const preferred = allWeapons
+            .filter(w => w.name !== a.name && w.name !== b.name)
+            .sort((x, y) => {
+              const xScore = Math.abs(((a.power + b.power) / 2) - x.power) + (x.category === a.category || x.category === b.category ? 0.15 : 0);
+              const yScore = Math.abs(((a.power + b.power) / 2) - y.power) + (y.category === a.category || y.category === b.category ? 0.15 : 0);
+              return xScore - yScore;
+            })
+            .slice(0, 16);
+
+          const result = preferred[seed % preferred.length] || allWeapons[seed % allWeapons.length] || allWeapons[0];
+          return { result: result.name, reason: "Rivals fusion logic stabilized the combo into a matching weapon" };
         };
 
         const renderResult = (animate = false) => {
