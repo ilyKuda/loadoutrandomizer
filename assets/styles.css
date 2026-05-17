@@ -5770,3 +5770,56 @@ body.home-page .home-card-image-wrap {
     max-width: 420px !important;
   }
 }
+
+
+/* v90 hard home grid repair */
+body.home-page .home-page-section,
+#homePage.home-page-section {
+  width: 100% !important;
+  max-width: 1320px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+body.home-page #homePage .home-tool-grid,
+#homePage .home-tool-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-auto-flow: row !important;
+  gap: 18px !important;
+  width: 100% !important;
+  max-width: 1320px !important;
+  margin: 0 auto 22px !important;
+  align-items: stretch !important;
+}
+
+body.home-page #homePage .home-tool-card,
+#homePage .home-tool-card {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  justify-self: stretch !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+}
+
+#homePage .home-tool-card:nth-child(1) { order: 1 !important; }
+#homePage .home-tool-card:nth-child(2) { order: 2 !important; }
+#homePage .home-tool-card:nth-child(3) { order: 3 !important; }
+#homePage .home-tool-card:nth-child(4) { order: 4 !important; }
+#homePage .home-tool-card:nth-child(5) { order: 5 !important; }
+#homePage .home-tool-card:nth-child(6) { order: 6 !important; }
+
+body.home-page #homePage .home-card-image-wrap,
+#homePage .home-card-image-wrap {
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+}
+
+@media (max-width: 560px) {
+  body.home-page #homePage .home-tool-grid,
+  #homePage .home-tool-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 420px !important;
+  }
+}

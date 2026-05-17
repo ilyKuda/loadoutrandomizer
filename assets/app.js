@@ -14,10 +14,11 @@ const __rtAsset = path => {
     'loadout-screen',
     'thumbnail-builder',
     'tier-list-builder',
-    'challenge-road'
+    'challenge-road',
+    'weapon-fusions'
   ]);
-  const last = current.split('/').filter(Boolean).pop() || '';
-  const prefix = toolPages.has(last) ? '../' : '';
+  const parts = current.split('/').filter(Boolean);
+  const prefix = parts.some(part => toolPages.has(part)) ? '../' : '';
   return `${prefix}${clean}`;
 };
 

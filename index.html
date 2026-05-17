@@ -5,9 +5,38 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="assets/embedded/img_0001_d6a143754ad4.svg">
-<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/styles.css?v=90">
 <script>window.__RIVALS_TOOLS_PAGE__ = "home";</script>
-<script src="assets/app.js" defer></script>
+<script src="assets/app.js?v=90" defer></script>
+
+<style id="homeGridHardFix">
+  body.home-page #homePage .home-tool-grid,
+  #homePage .home-tool-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-auto-flow: row !important;
+    gap: 18px !important;
+    width: 100% !important;
+    max-width: 1320px !important;
+    margin: 0 auto 22px !important;
+  }
+  body.home-page #homePage .home-tool-card,
+  #homePage .home-tool-card {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+  @media (max-width: 560px) {
+    body.home-page #homePage .home-tool-grid,
+    #homePage .home-tool-grid {
+      grid-template-columns: 1fr !important;
+      max-width: 420px !important;
+    }
+  }
+</style>
+
 </head>
 <body>
 
@@ -1400,7 +1429,7 @@
   </div>
 
 
-  <script src="assets/app.js" defer></script>
+  <script src="assets/app.js?v=90" defer></script>
 
 
 </body>
