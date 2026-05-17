@@ -1,18 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
-<defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071529"/><stop offset="1" stop-color="#35114e"/></linearGradient>
-  <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#57d7ff"/><stop offset=".5" stop-color="#fff06b"/><stop offset="1" stop-color="#ff5de4"/></linearGradient>
-  <filter id="glow"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-</defs>
-<rect width="1280" height="720" rx="0" fill="url(#bg)"/>
-<g opacity=".18" stroke="#ffffff" stroke-width="3"><path d="M0 130H1280M0 270H1280M0 410H1280M0 550H1280M190 0V720M390 0V720M590 0V720M790 0V720M990 0V720"/></g>
-<g filter="url(#glow)">
-  <rect x="110" y="238" width="255" height="205" rx="34" fill="#0c1830" stroke="#57d7ff" stroke-width="5"/>
-  <rect x="915" y="238" width="255" height="205" rx="34" fill="#0c1830" stroke="#ff5de4" stroke-width="5"/>
-  <rect x="470" y="175" width="340" height="330" rx="48" fill="#0c1830" stroke="#ffe36b" stroke-width="7"/>
-  <path d="M365 340H470M810 340H915" stroke="url(#beam)" stroke-width="20" stroke-linecap="round"/>
-  <circle cx="640" cy="340" r="92" fill="none" stroke="url(#beam)" stroke-width="17"/>
-  <path d="M600 340h80M640 300v80" stroke="#fff" stroke-width="18" stroke-linecap="round"/>
-</g>
-<text x="640" y="625" text-anchor="middle" font-family="Arial Black, Arial" font-size="64" fill="#fff" stroke="#000" stroke-width="9" paint-order="stroke fill">WEAPON FUSIONS</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071529"/><stop offset="1" stop-color="#35114e"/></linearGradient><linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#57d7ff"/><stop offset=".5" stop-color="#fff06b"/><stop offset="1" stop-color="#ff5de4"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect width="1280" height="720" fill="url(#bg)"/><g opacity=".18" stroke="#fff" stroke-width="3"><path d="M0 130H1280M0 270H1280M0 410H1280M0 550H1280M190 0V720M390 0V720M590 0V720M790 0V720M990 0V720"/></g><g filter="url(#glow)"><rect x="110" y="238" width="255" height="205" rx="34" fill="#0c1830" stroke="#57d7ff" stroke-width="5"/><rect x="915" y="238" width="255" height="205" rx="34" fill="#0c1830" stroke="#ff5de4" stroke-width="5"/><rect x="470" y="175" width="340" height="330" rx="48" fill="#0c1830" stroke="#ffe36b" stroke-width="7"/><path d="M365 340H470M810 340H915" stroke="url(#beam)" stroke-width="20" stroke-linecap="round"/><circle cx="640" cy="340" r="92" fill="none" stroke="url(#beam)" stroke-width="17"/><path d="M600 340h80M640 300v80" stroke="#fff" stroke-width="18" stroke-linecap="round"/></g><text x="640" y="625" text-anchor="middle" font-family="Arial Black, Arial" font-size="64" fill="#fff" stroke="#000" stroke-width="9" paint-order="stroke fill">WEAPON FUSIONS</text></svg>

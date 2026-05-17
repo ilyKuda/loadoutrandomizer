@@ -3017,7 +3017,7 @@ const exactAssetFileMap = {"10bvisits":["Skins2/10BVisits_Icon.png"],"10bvisitsi
         }, true);
 
         document.addEventListener("mouseover", event => {
-          const target = event.target.closest?.("button:not(:disabled), a[href], select, label, input[type='checkbox'], input[type='range'], input[type='file'], .home-tool-card, .page-tab, .thumb-template-tab, .screen-picker-weapon, .screen-picker-skin, .thumb-item-slot, .thumb2-slot, .screen-loadout-slot, .bg-option, .thumb-bg-btn, .luck-btn, .mode-btn, .rarity-btn, .tier-item-card, .tier-picker-option, [role='button'], [data-home-page], [data-page]");
+          const target = event.target.closest?.("button:not(:disabled), a[href], select, label, input[type='checkbox'], input[type='range'], input[type='file'], .home-tool-card, .page-tab, .thumb-template-tab, .screen-picker-weapon, .screen-picker-skin, .thumb-item-slot, .thumb2-slot, .screen-loadout-slot, .bg-option, .thumb-bg-btn, .luck-btn, .mode-btn, .rarity-btn, .tier-item-card, .tier-picker-option, .fusion-picker-card, .fusion-select-slot, [role='button'], [data-home-page], [data-page]");
           if (!target || target === lastHoverTickElement) return;
           const now = Date.now();
           if (now - lastHoverTickTime < 55) return;
@@ -5028,9 +5028,9 @@ thumbClearBtn?.addEventListener("click", () => {
         const fusionRecipes = new Map([
           [keyFor("Assault Rifle", "Freeze Ray"), { result: "Permafrost", reason: "automatic rifle pressure frozen into Permafrost tech" }],
           [keyFor("Handgun", "Spray"), { result: "Uzi", reason: "a compact pistol upgraded into rapid-fire spray control" }],
+          [keyFor("Pistol", "Spray"), { result: "Uzi", reason: "a pistol-style sidearm fused with spray fire rate" }],
           [keyFor("Revolver", "Spray"), { result: "Uzi", reason: "sidearm precision mixed with spray fire rate" }],
           [keyFor("Bow", "Crossbow"), { result: "RPG", reason: "projectile weapons fused into a heavier launcher" }],
-          [keyFor("Grenade", "Launcher"), { result: "Grenade Launcher", reason: "explosives attached to a dedicated launcher system" }],
           [keyFor("Grenade", "RPG"), { result: "Grenade Launcher", reason: "explosive power reshaped for repeat launches" }],
           [keyFor("Energy Rifle", "Freeze Ray"), { result: "Permafrost", reason: "energy tech chilled into a freezing rifle variant" }],
           [keyFor("Energy Rifle", "Energy Pistols"), { result: "Exogun", reason: "energy weapons compressed into a high-tech exo weapon" }],
@@ -5045,11 +5045,9 @@ thumbClearBtn?.addEventListener("click", () => {
           [keyFor("Jump Pad", "Grappler"), { result: "Warpstone", reason: "mobility tools converted into instant repositioning" }],
           [keyFor("Paintball Gun", "Slingshot"), { result: "Bow", reason: "arc projectiles fused into a stronger ranged weapon" }],
           [keyFor("Minigun", "Assault Rifle"), { result: "Burst Rifle", reason: "automatic fire stabilized into burst control" }],
-          [keyFor("RPG", "Minigun"), { result: "Grenade Launcher", reason: "heavy firepower converted into explosive spam" }],
           [keyFor("Scepter", "War Horn"), { result: "Warper", reason: "support magic and sound pressure create battlefield control" }],
           [keyFor("Medkit", "Elixir"), { result: "Scepter", reason: "support items fused into a magical support weapon" }],
-          [keyFor("Smoke Grenade", "Flashbang"), { result: "Freeze Ray", reason: "utility disruption hardened into crowd control" }],
-          [keyFor("Trowel", "Riot Shield"), { result: "Subspace Tripmine", reason: "defensive setup becomes a trap-based tool" }]
+          [keyFor("Smoke Grenade", "Flashbang"), { result: "Freeze Ray", reason: "utility disruption hardened into crowd control" }]
         ]);
 
         const categoryFallbacks = [
@@ -5095,10 +5093,8 @@ thumbClearBtn?.addEventListener("click", () => {
           if (!a || !b) return null;
           const direct = fusionRecipes.get(keyFor(a.name, b.name));
           if (direct && getWeapon(direct.result)) return direct;
-
           const fallback = categoryFallbacks.find(rule => rule.test(a, b));
           if (fallback && getWeapon(fallback.result)) return fallback;
-
           const pool = allWeapons.filter(w => w.name !== a.name && w.name !== b.name);
           const seed = (a.name + b.name).split("").reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
           const result = pool[seed % pool.length] || allWeapons[0];
@@ -5111,11 +5107,10 @@ thumbClearBtn?.addEventListener("click", () => {
             if (resultImg) { resultImg.hidden = true; resultImg.removeAttribute("src"); }
             if (resultName) resultName.textContent = "Select 2 weapons";
             if (resultRecipe) resultRecipe.textContent = "Waiting for ingredients...";
-            note.textContent = "Tip: try combinations like Assault Rifle + Freeze Ray, Handgun + Spray, or Bow + Crossbow.";
+            if (note) note.textContent = "Tip: try combinations like Assault Rifle + Freeze Ray, Handgun + Spray, or Bow + Crossbow.";
             resultSlot?.classList.remove("is-fusing", "has-result");
             return;
           }
-
           const fusion = pickFusionResult();
           const resultWeapon = getWeapon(fusion.result) || allWeapons[0];
           resultSlot?.classList.toggle("is-fusing", Boolean(animate));
@@ -5124,13 +5119,13 @@ thumbClearBtn?.addEventListener("click", () => {
           setFusionImage(resultImg, resultWeapon);
           if (resultName) resultName.textContent = resultWeapon.name;
           if (resultRecipe) resultRecipe.textContent = `${a.name} + ${b.name}`;
-          note.textContent = fusion.reason ? `${a.name} + ${b.name} → ${resultWeapon.name}: ${fusion.reason}.` : `${a.name} + ${b.name} → ${resultWeapon.name}`;
+          if (note) note.textContent = `${a.name} + ${b.name} → ${resultWeapon.name}: ${fusion.reason}.`;
         };
 
         const renderPicker = () => {
           const q = (pickerSearch?.value || "").toLowerCase().trim();
           const items = allWeapons.filter(w => `${w.name} ${w.category} ${w.tier}`.toLowerCase().includes(q));
-          pickerGrid.innerHTML = items.map((weapon, index) => `
+          pickerGrid.innerHTML = items.map(weapon => `
             <button class="fusion-picker-card" type="button" data-fusion-pick="${weapon.name}">
               <img src="${weapon.img || placeholderSvg(weapon.name, weapon.category)}" alt="" draggable="false" />
               <span>${escapeHtml(weapon.name)}</span>
@@ -5146,20 +5141,14 @@ thumbClearBtn?.addEventListener("click", () => {
           if (pickerSearch) pickerSearch.value = "";
           renderPicker();
         };
-
         const closePicker = () => {
           modal?.classList.remove("open");
           modal?.setAttribute("aria-hidden", "true");
         };
-
-        slotBtns.forEach((btn, index) => {
-          btn?.addEventListener("click", () => openPicker(index));
-        });
-
+        slotBtns.forEach((btn, index) => btn?.addEventListener("click", () => openPicker(index)));
         pickerClose?.addEventListener("click", closePicker);
         modal?.addEventListener("click", event => { if (event.target === modal) closePicker(); });
         pickerSearch?.addEventListener("input", renderPicker);
-
         pickerGrid?.addEventListener("click", event => {
           const btn = event.target.closest("[data-fusion-pick]");
           if (!btn) return;
@@ -5170,16 +5159,13 @@ thumbClearBtn?.addEventListener("click", () => {
           renderResult(true);
           closePicker();
         });
-
         fuseBtn?.addEventListener("click", () => renderResult(true));
-
         clearBtn?.addEventListener("click", () => {
           fusionSelections = [null, null];
           renderFusionSlot(0);
           renderFusionSlot(1);
           renderResult(false);
         });
-
         renderFusionSlot(0);
         renderFusionSlot(1);
         renderResult(false);

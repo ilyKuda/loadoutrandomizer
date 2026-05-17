@@ -5582,9 +5582,7 @@
   box-shadow: 0 0 16px rgba(255, 46, 46, 0.55);
 }
 
-
-
-/* Weapon Fusions */
+/* Weapon Fusions Fixed */
 .weapon-fusions-page {
   display: none;
   position: relative;
@@ -5592,9 +5590,7 @@
   margin: 22px auto 0;
   max-width: 1180px;
 }
-
 body.fusion-page .weapon-fusions-page { display: block; }
-
 body.fusion-page #loadoutGrid,
 body.fusion-page .controls,
 body.fusion-page .note,
@@ -5605,7 +5601,6 @@ body.fusion-page .thumbnail-builder-page,
 body.fusion-page .tier-list-page,
 body.fusion-page .challenge-road-page,
 body.fusion-page .home-page-section { display: none !important; }
-
 body:not(.fusion-page) .weapon-fusions-page { display: none !important; }
 
 .fusion-copy { text-align: center; margin: 0 auto 18px; max-width: 850px; }
@@ -5613,7 +5608,6 @@ body:not(.fusion-page) .weapon-fusions-page { display: none !important; }
 .fusion-copy p { margin: 0; color: #aeb9d3; font-size: 13px; line-height: 1.55; }
 
 .fusion-lab {
-  position: relative;
   display: grid;
   grid-template-columns: minmax(170px, 1fr) minmax(70px, 0.34fr) minmax(230px, 1.2fr) minmax(70px, 0.34fr) minmax(170px, 1fr);
   align-items: center;
@@ -5623,15 +5617,10 @@ body:not(.fusion-page) .weapon-fusions-page { display: none !important; }
   padding: 18px;
   border-radius: 34px;
   border: 1px solid rgba(255,255,255,0.11);
-  background:
-    radial-gradient(circle at 50% 42%, rgba(255,227,107,0.10), transparent 44%),
-    linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03)),
-    rgba(7, 11, 25, 0.52);
+  background: radial-gradient(circle at 50% 42%, rgba(255,227,107,0.10), transparent 44%), linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03)), rgba(7, 11, 25, 0.52);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 24px 70px rgba(0,0,0,0.28);
 }
-
-.fusion-slot-label,
-.fusion-result-kicker {
+.fusion-slot-label, .fusion-result-kicker {
   display: block;
   color: #9aa5c1;
   text-transform: uppercase;
@@ -5641,9 +5630,7 @@ body:not(.fusion-page) .weapon-fusions-page { display: none !important; }
   margin-bottom: 8px;
   text-align: center;
 }
-
-.fusion-select-slot,
-.fusion-result-slot {
+.fusion-select-slot, .fusion-result-slot {
   width: 100%;
   min-height: 245px;
   border: 1px solid rgba(255,255,255,0.13);
@@ -5656,234 +5643,78 @@ body:not(.fusion-page) .weapon-fusions-page { display: none !important; }
   color: #fff;
   font: inherit;
   text-align: center;
-  background:
-    radial-gradient(circle at 50% 20%, rgba(87,215,255,0.18), transparent 46%),
-    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025)),
-    rgba(8, 13, 28, 0.74);
+  background: radial-gradient(circle at 50% 20%, rgba(87,215,255,0.18), transparent 46%), linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025)), rgba(8, 13, 28, 0.74);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 18px 45px rgba(0,0,0,0.22);
   transition: transform 160ms ease, filter 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
-
-.fusion-select-slot:hover,
-.fusion-result-slot:hover {
-  transform: translateY(-3px);
-  filter: brightness(1.07);
-  border-color: rgba(87,215,255,0.38);
-}
-
-.fusion-select-slot.has-weapon {
-  border-color: rgba(87,215,255,0.42);
-}
-
+.fusion-select-slot:hover, .fusion-result-slot:hover { transform: translateY(-3px); filter: brightness(1.07); border-color: rgba(87,215,255,0.38); }
 .fusion-result-slot {
   min-height: 330px;
   cursor: default;
-  background:
-    radial-gradient(circle at 50% 38%, rgba(255,227,107,0.22), transparent 48%),
-    radial-gradient(circle at 30% 20%, rgba(87,215,255,0.18), transparent 38%),
-    linear-gradient(180deg, rgba(255,255,255,0.095), rgba(255,255,255,0.03)),
-    rgba(8, 13, 28, 0.82);
+  background: radial-gradient(circle at 50% 38%, rgba(255,227,107,0.22), transparent 48%), radial-gradient(circle at 30% 20%, rgba(87,215,255,0.18), transparent 38%), linear-gradient(180deg, rgba(255,255,255,0.095), rgba(255,255,255,0.03)), rgba(8, 13, 28, 0.82);
 }
-
 .fusion-result-slot.has-result {
   border-color: rgba(255,227,107,0.52);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.12),
-    0 0 0 3px rgba(255,227,107,0.08),
-    0 22px 58px rgba(0,0,0,0.28),
-    0 0 46px rgba(255,227,107,0.16);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 0 0 3px rgba(255,227,107,0.08), 0 22px 58px rgba(0,0,0,0.28), 0 0 46px rgba(255,227,107,0.16);
 }
-
 .fusion-plus {
-  width: 58px;
-  height: 58px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  background: rgba(255,255,255,0.11);
-  color: #fff;
-  font-size: 38px;
-  font-weight: 1000;
+  width: 58px; height: 58px; border-radius: 999px; display: grid; place-items: center;
+  background: rgba(255,255,255,0.11); color: #fff; font-size: 38px; font-weight: 1000;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
 }
-
-.fusion-weapon-img,
-.fusion-result-img {
-  width: min(90%, 190px);
-  height: 150px;
-  object-fit: contain;
+.fusion-weapon-img, .fusion-result-img {
+  width: min(90%, 190px); height: 150px; object-fit: contain;
   filter: drop-shadow(0 18px 12px rgba(0,0,0,0.40)) drop-shadow(0 0 12px rgba(255,255,255,0.08));
-  user-select: none;
-  pointer-events: none;
+  user-select: none; pointer-events: none;
 }
-
-.fusion-result-img {
-  width: min(94%, 260px);
-  height: 205px;
+.fusion-result-img { width: min(94%, 260px); height: 205px; }
+.fusion-weapon-name, .fusion-result-name {
+  font-size: clamp(18px, 2vw, 25px); font-weight: 1000; color: #fff; text-shadow: 0 8px 22px rgba(0,0,0,0.36);
 }
-
-.fusion-weapon-name,
-.fusion-result-name {
-  font-size: clamp(18px, 2vw, 25px);
-  font-weight: 1000;
-  color: #fff;
-  text-shadow: 0 8px 22px rgba(0,0,0,0.36);
-}
-
-.fusion-result-name {
-  font-size: clamp(25px, 3vw, 38px);
-  color: #fff7cf;
-}
-
-.fusion-result-recipe {
-  min-height: 18px;
-  color: #aeb9d3;
-  font-size: 12px;
-  font-weight: 850;
-}
-
-.fusion-result-wrap {
-  display: grid;
-  gap: 10px;
-}
-
+.fusion-result-name { font-size: clamp(25px, 3vw, 38px); color: #fff7cf; }
+.fusion-result-recipe { min-height: 18px; color: #aeb9d3; font-size: 12px; font-weight: 850; }
+.fusion-result-wrap { display: grid; gap: 10px; }
 .fusion-bar {
-  height: 18px;
-  border-radius: 999px;
+  height: 18px; border-radius: 999px;
   background: linear-gradient(90deg, rgba(87,215,255,0.1), #57d7ff, #ffe36b, rgba(255,93,228,0.12));
   box-shadow: 0 0 24px rgba(87,215,255,0.22), 0 0 18px rgba(255,227,107,0.16);
   position: relative;
 }
-
-.fusion-bar::after {
-  content: "";
-  position: absolute;
-  inset: -8px;
-  border-radius: inherit;
-  background: inherit;
-  filter: blur(12px);
-  opacity: 0.42;
-  z-index: -1;
-}
-
-.fusion-button {
-  background: linear-gradient(90deg, #57d7ff, #ffe36b, #ff5de4) !important;
-}
-
+.fusion-bar::after { content: ""; position: absolute; inset: -8px; border-radius: inherit; background: inherit; filter: blur(12px); opacity: 0.42; z-index: -1; }
+.fusion-button { background: linear-gradient(90deg, #57d7ff, #ffe36b, #ff5de4) !important; }
 .fusion-recipe-note {
-  width: min(100%, 920px);
-  margin: 0 auto;
-  text-align: center;
-  color: #d7def2;
-  font-size: 13px;
-  font-weight: 850;
-  line-height: 1.45;
-  padding: 12px 16px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(255,255,255,0.045);
+  width: min(100%, 920px); margin: 0 auto; text-align: center; color: #d7def2;
+  font-size: 13px; font-weight: 850; line-height: 1.45; padding: 12px 16px;
+  border-radius: 18px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.045);
 }
-
-.fusion-picker-backdrop.open {
-  display: grid !important;
-  opacity: 1;
-  pointer-events: auto;
-}
-
+.fusion-picker-backdrop.open { display: grid !important; opacity: 1; pointer-events: auto; }
 .fusion-picker-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(122px, 1fr));
-  gap: 10px;
-  max-height: min(560px, 62vh);
-  overflow: auto;
-  padding-right: 4px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(122px, 1fr));
+  gap: 10px; max-height: min(560px, 62vh); overflow: auto; padding-right: 4px;
 }
-
 .fusion-picker-card {
-  min-height: 126px;
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 18px;
-  background: rgba(255,255,255,0.05);
-  color: #fff;
-  cursor: pointer;
-  display: grid;
-  grid-template-rows: 70px auto auto;
-  gap: 5px;
-  padding: 10px;
-  font: inherit;
-  text-align: center;
-  transition: transform 130ms ease, filter 130ms ease, border-color 130ms ease;
+  min-height: 126px; border: 1px solid rgba(255,255,255,0.10); border-radius: 18px;
+  background: rgba(255,255,255,0.05); color: #fff; cursor: pointer;
+  display: grid; grid-template-rows: 70px auto auto; gap: 5px; padding: 10px; font: inherit;
+  text-align: center; transition: transform 130ms ease, filter 130ms ease, border-color 130ms ease;
 }
-
-.fusion-picker-card:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.08);
-  border-color: rgba(255,227,107,0.32);
-}
-
-.fusion-picker-card img {
-  width: 100%;
-  height: 70px;
-  object-fit: contain;
-  filter: drop-shadow(0 8px 8px rgba(0,0,0,0.32));
-  pointer-events: none;
-}
-
-.fusion-picker-card span {
-  font-weight: 1000;
-  font-size: 12px;
-  line-height: 1.1;
-}
-
-.fusion-picker-card small {
-  color: #9aa5c1;
-  font-size: 10px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.fusion-result-slot.is-fusing .fusion-result-img,
-.fusion-result-slot.is-fusing .fusion-result-name {
-  animation: fusionPulse 650ms ease both;
-}
-
+.fusion-picker-card:hover { transform: translateY(-2px); filter: brightness(1.08); border-color: rgba(255,227,107,0.32); }
+.fusion-picker-card img { width: 100%; height: 70px; object-fit: contain; filter: drop-shadow(0 8px 8px rgba(0,0,0,0.32)); pointer-events: none; }
+.fusion-picker-card span { font-weight: 1000; font-size: 12px; line-height: 1.1; }
+.fusion-picker-card small { color: #9aa5c1; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; }
+.fusion-result-slot.is-fusing .fusion-result-img, .fusion-result-slot.is-fusing .fusion-result-name { animation: fusionPulse 650ms ease both; }
 @keyframes fusionPulse {
   0% { transform: scale(0.92); opacity: 0.3; filter: blur(5px) brightness(1.8); }
   55% { transform: scale(1.08); opacity: 1; filter: blur(0) brightness(1.35); }
   100% { transform: scale(1); opacity: 1; filter: blur(0) brightness(1); }
 }
-
 @media (max-width: 940px) {
-  .fusion-lab {
-    grid-template-columns: 1fr;
-  }
-  .fusion-bar {
-    height: 12px;
-    width: 60%;
-    justify-self: center;
-  }
-  .fusion-bar-right {
-    order: 4;
-  }
-  .fusion-result-wrap {
-    order: 3;
-  }
+  .fusion-lab { grid-template-columns: 1fr; }
+  .fusion-bar { height: 12px; width: 60%; justify-self: center; }
+  .fusion-result-wrap { order: 3; }
 }
-
-/* v87 Home layout for six tools */
-.home-tool-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  max-width: 1180px !important;
-}
-.home-tool-card[data-home-page="tier"],
-.home-tool-card[data-home-page="challenge"],
-.home-tool-card[data-home-page="fusion"] {
-  grid-column: auto !important;
-}
-@media (max-width: 1100px) {
-  .home-tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-}
-@media (max-width: 680px) {
-  .home-tool-grid { grid-template-columns: 1fr !important; }
-}
+/* Home 3x2 layout */
+.home-tool-grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; max-width: 1320px !important; margin-inline: auto !important; align-items: stretch !important; }
+.home-tool-card[data-home-page="tier"], .home-tool-card[data-home-page="challenge"], .home-tool-card[data-home-page="fusion"] { grid-column: auto !important; justify-self: stretch !important; }
+@media (max-width: 1100px) { .home-tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+@media (max-width: 680px) { .home-tool-grid { grid-template-columns: 1fr !important; } }
